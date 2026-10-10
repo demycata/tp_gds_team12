@@ -52,6 +52,11 @@ app.get('/health', (req, res) => {
 app.use('/admin', adminRoutes);
 app.use('/users', usersRouter);
 
+// Ruta de prueba para verificar la integración con Sentry
+app.get('/debug-sentry', function mainHandler(req, res) {
+  throw new Error('My first Sentry error!');
+});
+
 // Manejador de errores de Sentry (debe ir después de las rutas y antes de los manejadores propios)
 Sentry.setupExpressErrorHandler(app);
 
