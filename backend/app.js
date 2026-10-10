@@ -27,7 +27,8 @@ app.set('view engine', 'ejs');
 
 // Middlewares generales
 app.use(logger('dev'));
-app.use(cors(process.env.FRONTEND_URL ? { origin: process.env.FRONTEND_URL } : undefined));
+const frontendUrl = process.env.FRONTEND_URL?.replace(/\/+$/, '');
+app.use(cors(frontendUrl ? { origin: frontendUrl } : undefined));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
