@@ -89,10 +89,7 @@ function renderizarCarrito() {
         <div class="card shadow-sm">
             <div class="card-body">
                 ${carrito.map(item => {
-                    // Si item.imagen ya viene con la ruta del endpoint la usa, si no la arma con el id
-                    const rutaImg = (item.imagen && item.imagen.startsWith('/admin/producto/imagen/'))
-                        ? item.imagen
-                        : `/admin/producto/imagen/${item.id}`;
+                    const rutaImg = `${API_BASE_URL}/admin/producto/imagen/${item.id}`;
 
                     return `
                     <div class="row align-items-center border-bottom py-3" data-producto-id="${item.id}">

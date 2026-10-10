@@ -77,7 +77,7 @@ function renderizarGrupo(listaProductos, idContenedor) {
                         ${overlaySinStock}
                         
                         <!-- Carga la imagen binaria desde la base de datos -->
-                        <img src="/admin/producto/imagen/${prod.id}" class="card-img-top" alt="${prod.nombre}" 
+                        <img src="${API_BASE_URL}/admin/producto/imagen/${prod.id}" class="card-img-top" alt="${prod.nombre}"
      style="width: 100% !important; height: 320px !important; object-fit: cover !important; object-position: top center !important; ${filtroGris}">
                         
                         <span class="position-absolute top-0 end-0 badge rounded-pill bg-dark m-2 fs-6">
@@ -175,7 +175,7 @@ async function agregarAlCarrito(idProducto) {
                         id: producto.id,
                         nombre: producto.nombre,
                         precio: producto.precio,
-                        imagen: `/admin/producto/imagen/${producto.id}`,
+                        imagen: `${API_BASE_URL}/admin/producto/imagen/${producto.id}`,
                         categoria: producto.categoria,
                         cantidad: cantidad
                     });
@@ -313,7 +313,7 @@ async function cargarDestacados() {
                         <div class="card h-100 shadow-sm border-0 product-card" >
                             <div class="position-relative">
                                 <!-- Carga la imagen binaria desde la base de datos -->
-                                <img src="/admin/producto/imagen/${prod.id}" class="carrusel-img" alt="${prod.nombre}" 
+                                <img src="${API_BASE_URL}/admin/producto/imagen/${prod.id}" class="carrusel-img" alt="${prod.nombre}"
                                 style="width: 100% !important; height: 350px !important; object-fit: cover !important; 
                                 object-position: top center !important; display: block !important;">
                         
@@ -365,7 +365,7 @@ function verProducto(id){
     //rellenar el modal
     document.getElementById('modal-titulo').textContent = producto.nombre;
     // Carga la imagen binaria en el modal desde la base de datos
-    document.getElementById('modal-img').src = `/admin/producto/imagen/${producto.id}`;
+    document.getElementById('modal-img').src = `${API_BASE_URL}/admin/producto/imagen/${producto.id}`;
     document.getElementById('modal-descripcion').textContent = producto.descripcion;
     document.getElementById('modal-precio').textContent = `$${producto.precio}`;
     
@@ -448,7 +448,7 @@ async function agregarDesdeModal(idProducto){
                         id: producto.id,
                         nombre: producto.nombre,
                         precio: producto.precio,
-                        imagen: `/admin/producto/imagen/${producto.id}`,
+                        imagen: `${API_BASE_URL}/admin/producto/imagen/${producto.id}`,
                         categoria: producto.categoria,
                         cantidad: cantidad
                     });
