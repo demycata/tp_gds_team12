@@ -62,7 +62,7 @@ Sentry.setupExpressErrorHandler(app);
 
 // Manejo de 404
 app.use((req, res, next) => {
-  next(createError(404));
+  next(createError(400));
 });
 
 // Manejador central de errores
